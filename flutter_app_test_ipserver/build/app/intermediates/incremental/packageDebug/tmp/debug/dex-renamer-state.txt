@@ -1,0 +1,4 @@
+#Wed Apr 21 14:28:12 PDT 2021
+base.0=C\:\\Users\\rjtor\\OneDrive\\Documents\\GitHub\\CSE5408_senior_project_garage_controller\\flutter_app_test_ipserver\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
