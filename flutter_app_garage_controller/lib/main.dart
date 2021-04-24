@@ -1,7 +1,5 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
-
+import 'socket.dart';
 void main() =>  runApp(ControllerApp());
 
 class ControllerApp extends StatelessWidget
@@ -15,22 +13,42 @@ class ControllerApp extends StatelessWidget
           title: Text('CSE Garage Controller'),
          centerTitle: true,
       ),
-        body: Center(
-          child: RaisedButton(
-            onPressed: ()
-            {
-              print('Click');
-            },
-            child: Text('A button '),
-          ),
-      ),
+        body:
+        Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                ElevatedButton(
+                onPressed: ()
+                {
+                print('OPEN');
+                },
+                child: Text('Open Door'),
+                ),
+                ElevatedButton(
+                onPressed: ()
+                {
+                print('HALF OPEN');
+                },
+                child: Text('Half Open'),
+                ),
+                ElevatedButton(
+                    onPressed: ()
+                    {
+                      print('CLOSED');
+                    },
+                    child: Text('Close Door'),
+                  ),
+                ]
+                ),
 
-      ),
-      );
-
-
+                ),
+                );
   }
+
+
 }
+
 
 
 
