@@ -1,0 +1,6 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+com/example/flutter_app_test_ipserver/MainActivity.java
+ com.example.flutter_app_test_ipserver.MainActivity
+com/example/flutter_app_test_ipserver/BuildConfig.java
+ com.example.flutter_app_test_ipserver.BuildConfig
