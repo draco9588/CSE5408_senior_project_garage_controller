@@ -24,7 +24,9 @@ const int reed_open = 5;
 //chars used for incoming commands from Phone Application
 char temp[50];
 char compare;
-
+//prototyping
+//Green LED will represent motor of garage when lit motor on
+const int motor = 13;
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 void setup()
@@ -43,6 +45,10 @@ void setup()
   pinMode(reed_open, INPUT); //set input to read reed signal
   pinMode(reed_half, INPUT); //set input to read reed signal
   pinMode(reed_closed, INPUT); //set input to read reed signal
+
+  //comment out when not on bread board
+  pinMode(motor, OUTPUT);
+  digitalWrite(motor, LOW);
 }
 
 //////////////////////////////////////////////////////////////
@@ -77,9 +83,9 @@ do
   door_operation(compare);
   delay(1500);
 }while( val_x == LOW || val_y == LOW);
+power_garage();
 
 }
-
 
 /////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
@@ -123,7 +129,7 @@ void full_open_door()
   power_garage();
   do {
     x = digitalRead(reed_open);
-  }while(reed_open == LOW);
+  }while(x == LOW);
    open_message();
   
   
@@ -136,7 +142,7 @@ void half_open_door()
   power_garage();
    do {
     x = digitalRead(reed_half);
-  }while(reed_half == LOW);
+  }while(x == LOW);
   power_garage();
    half_message();
 }
@@ -147,8 +153,8 @@ void close_door()
   closing_message();
   power_garage();
     do {
-    x = digitalRead(reed_open);
-  }while(reed_closed == LOW);
+    x = digitalRead(reed_closed);
+  }while(x == LOW);
   close_message();
 }
 ////////////////////////////////////////////////////////////
@@ -192,13 +198,18 @@ void half_message()
 void power_garage()
 {
   digitalWrite(signal_garage_out, HIGH);
-  delay(1000);
+  delay(500);
   digitalWrite(signal_garage_out, LOW);
+  //comment out aftwer proto
+  digitalWrite(motor,HIGH);
+  delay(1500);
+  digitalWrite(motor,LOW); 
 }
 
-void read_signal(int x, int y)
+int read_signal(int x, int y)
 {
   y = digitalRead(x);
+  return y;
 }
 
 /////////////////////////////////////////////////////////////
@@ -207,8 +218,9 @@ void read_signal(int x, int y)
  * garage door.
 */
 
-void reed_check(int x)
+void reed_check()
 {
+
   if ( reed_closed == HIGH)
   {
     close_message();
