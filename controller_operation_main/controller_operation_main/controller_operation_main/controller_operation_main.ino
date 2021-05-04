@@ -56,8 +56,8 @@ do
 {
  String incoming;
  
-  val_x = digitalRead(signal_button_in);
-  val_y = digitalRead(signal_garage_in);
+  read_signal(val_x, signal_button_in);
+  read_signal(val_y, signal_garage_in);
   
  //reading phone commands to string incoming
   unsigned int length_incoming;
@@ -118,24 +118,37 @@ void door_operation(char letter)
 */
 void full_open_door()
 {
+  int x = 0;
   opening_message();
   power_garage();
-  open_message();
+  do {
+    x = digitalRead(reed_open);
+  }while(reed_open == LOW);
+   open_message();
+  
+  
 }
 
 void half_open_door()
 {
+  int x=0;
   opening_message();
   power_garage();
-  
+   do {
+    x = digitalRead(reed_half);
+  }while(reed_half == LOW);
   power_garage();
-  half_message();
+   half_message();
 }
 
 void close_door()
 {
+  int x = 0;
   closing_message();
   power_garage();
+    do {
+    x = digitalRead(reed_open);
+  }while(reed_closed == LOW);
   close_message();
 }
 ////////////////////////////////////////////////////////////
@@ -183,14 +196,10 @@ void power_garage()
   digitalWrite(signal_garage_out, LOW);
 }
 
-/*int read_signal(int x, int y)
+void read_signal(int x, int y)
 {
-  int val_x = 0;
-  int val_y = 0;
-  val_x = digitalRead(x);
-  val_y = digitalRead(y);
-  return val_x, val_y;
-}*/
+  y = digitalRead(x);
+}
 
 /////////////////////////////////////////////////////////////
 //reed signal check
