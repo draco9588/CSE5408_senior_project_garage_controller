@@ -61,10 +61,9 @@ void loop()
 do
 {
  String incoming;
- 
-  read_signal(val_x, signal_button_in);
-  read_signal(val_y, signal_garage_in);
-  
+ val_x = digitalRead(signal_button_in);
+ val_y = digitalRead(signal_garage_in);
+
  //reading phone commands to string incoming
   unsigned int length_incoming;
   
@@ -78,11 +77,15 @@ do
 
   Serial.println("This is direction: ");
   Serial.println(incoming);
-  compare = temp[length_incoming-1];
+  compare = temp[0];
   Serial.println(compare);
   door_operation(compare);
-  delay(1500);
+//  delay(1500);
+  incoming;
+  compare;
+  temp;
 }while( val_x == LOW || val_y == LOW);
+Serial.println("broke loop");
 power_garage();
 
 }
@@ -192,8 +195,7 @@ void half_message()
 /*Functions include:
  * power_garage() will send a power signal to the opener.
  * signal HIGH for 1 second than return LOW.
- * read_signal(x,y) will monitor garage open button and 
- * kill signal from trip sensor at the bottom of the garage door.
+ * 
 */
 void power_garage()
 {
@@ -204,12 +206,6 @@ void power_garage()
   digitalWrite(motor,HIGH);
   delay(1500);
   digitalWrite(motor,LOW); 
-}
-
-int read_signal(int x, int y)
-{
-  y = digitalRead(x);
-  return y;
 }
 
 /////////////////////////////////////////////////////////////
