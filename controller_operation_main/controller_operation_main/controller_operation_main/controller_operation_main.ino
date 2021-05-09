@@ -1,4 +1,4 @@
-
+//completed Arduino source ready for presentation
 /*
 CSE 5408 Senior Project
 Garage Door Controller
@@ -60,12 +60,12 @@ void loop()
   
 do
 {
- String incoming;
- val_x = digitalRead(signal_button_in);
- val_y = digitalRead(signal_garage_in);
+ String incoming = "";
+ val_x = digitalRead(signal_button_in); //button being read to see if garage button is pushed to open or close
+ val_y = digitalRead(signal_garage_in);// reading garage signal to see if there is feed back from the opener
 
  //reading phone commands to string incoming
-  unsigned int length_incoming;
+  unsigned int length_incoming = 0;
   
   if (Serial.available() > 0) 
   {
@@ -81,9 +81,9 @@ do
   Serial.println(compare);
   door_operation(compare);
 //  delay(1500);
-  incoming;
-  compare;
-  temp;
+ // incoming.remove(0,length_incoming);
+  //compare='/0';
+  temp[0] = '/0';
 }while( val_x == LOW || val_y == LOW);
 Serial.println("broke loop");
 power_garage();
@@ -132,7 +132,7 @@ void full_open_door()
   power_garage();
   do {
     x = digitalRead(reed_open);
-  }while(x == LOW);
+  }while(x == HIGH);
    open_message();
   
   
@@ -145,7 +145,7 @@ void half_open_door()
   power_garage();
    do {
     x = digitalRead(reed_half);
-  }while(x == LOW);
+  }while(x == HIGH);
   power_garage();
    half_message();
 }
@@ -157,7 +157,7 @@ void close_door()
   power_garage();
     do {
     x = digitalRead(reed_closed);
-  }while(x == LOW);
+  }while(x == HIGH);
   close_message();
 }
 ////////////////////////////////////////////////////////////
