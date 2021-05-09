@@ -24,7 +24,9 @@ const int reed_open = 5;
 //chars used for incoming commands from Phone Application
 char temp[50];
 char compare;
-
+//prototyping
+//Green LED will represent motor of garage when lit motor on
+const int motor = 13;
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 void setup()
@@ -43,6 +45,10 @@ void setup()
   pinMode(reed_open, INPUT); //set input to read reed signal
   pinMode(reed_half, INPUT); //set input to read reed signal
   pinMode(reed_closed, INPUT); //set input to read reed signal
+
+  //comment out when not on bread board
+  pinMode(motor, OUTPUT);
+  digitalWrite(motor, LOW);
 }
 
 //////////////////////////////////////////////////////////////
@@ -55,10 +61,9 @@ void loop()
 do
 {
  String incoming;
- 
-  val_x = digitalRead(signal_button_in);
-  val_y = digitalRead(signal_garage_in);
-  
+ val_x = digitalRead(signal_button_in);
+ val_y = digitalRead(signal_garage_in);
+
  //reading phone commands to string incoming
   unsigned int length_incoming;
   
@@ -72,14 +77,18 @@ do
 
   Serial.println("This is direction: ");
   Serial.println(incoming);
-  compare = temp[length_incoming-1];
+  compare = temp[0];
   Serial.println(compare);
   door_operation(compare);
-  delay(1500);
+//  delay(1500);
+  incoming;
+  compare;
+  temp;
 }while( val_x == LOW || val_y == LOW);
+Serial.println("broke loop");
+power_garage();
 
 }
-
 
 /////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
@@ -118,24 +127,37 @@ void door_operation(char letter)
 */
 void full_open_door()
 {
+  int x = 0;
   opening_message();
   power_garage();
-  open_message();
+  do {
+    x = digitalRead(reed_open);
+  }while(x == LOW);
+   open_message();
+  
+  
 }
 
 void half_open_door()
 {
+  int x=0;
   opening_message();
   power_garage();
-  
+   do {
+    x = digitalRead(reed_half);
+  }while(x == LOW);
   power_garage();
-  half_message();
+   half_message();
 }
 
 void close_door()
 {
+  int x = 0;
   closing_message();
   power_garage();
+    do {
+    x = digitalRead(reed_closed);
+  }while(x == LOW);
   close_message();
 }
 ////////////////////////////////////////////////////////////
@@ -173,24 +195,18 @@ void half_message()
 /*Functions include:
  * power_garage() will send a power signal to the opener.
  * signal HIGH for 1 second than return LOW.
- * read_signal(x,y) will monitor garage open button and 
- * kill signal from trip sensor at the bottom of the garage door.
+ * 
 */
 void power_garage()
 {
   digitalWrite(signal_garage_out, HIGH);
-  delay(1000);
+  delay(500);
   digitalWrite(signal_garage_out, LOW);
+  //comment out aftwer proto
+  digitalWrite(motor,HIGH);
+  delay(1500);
+  digitalWrite(motor,LOW); 
 }
-
-/*int read_signal(int x, int y)
-{
-  int val_x = 0;
-  int val_y = 0;
-  val_x = digitalRead(x);
-  val_y = digitalRead(y);
-  return val_x, val_y;
-}*/
 
 /////////////////////////////////////////////////////////////
 //reed signal check
@@ -198,8 +214,9 @@ void power_garage()
  * garage door.
 */
 
-void reed_check(int x)
+void reed_check()
 {
+
   if ( reed_closed == HIGH)
   {
     close_message();
