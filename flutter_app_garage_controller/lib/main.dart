@@ -15,11 +15,11 @@ class MyApp extends StatelessWidget {
 
   Widget build(BuildContext context){
     return MaterialApp(
-        initialRoute: '/home',
+      /*  initialRoute: '/home',
         routes: {
           '/home': (context) => ControllerApp(),
           '/network': (context) => Network(),
-        },
+        },*/
       home: _MyHomePage(
         channel: _socket,
 
@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
   }
 }
 class _MyHomePage extends StatefulWidget{
+  String _back = '../pictures/door_closed.png';
   final Socket channel;
   _MyHomePage({Key key, this.channel}) : super(key: key);
   _MyHomePageState createState() => _MyHomePageState();
@@ -52,13 +53,13 @@ class _MyHomePageState extends State<_MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Menu',
+      title: 'Garage Door Controller',
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: const Color.fromRGBO(180, 40, 20, 1.0),
-          title: Text('Menu'),
+          title: Text('Home'),
         ),
-        drawer: Drawer(
+       /* drawer: Drawer(
           child: ListView(
             padding: EdgeInsets.only(top: 55),
             children: <Widget>[
@@ -78,8 +79,8 @@ class _MyHomePageState extends State<_MyHomePage> {
               ),
             ],
           ),
-        ),
-       /* body:
+        ),*/
+       body:
         Column(
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -87,13 +88,12 @@ class _MyHomePageState extends State<_MyHomePage> {
               Container(
                 height: MediaQuery.of(context).size.height * 55/100,
                 width: MediaQuery.of(context).size.width,
-                child: Text ('Placeholder for IMG', style: TextStyle(fontSize:(20)) ,textAlign: TextAlign.center,), // Remove line when adding IMG below
                 decoration: BoxDecoration(
                   color: Color.fromRGBO(120, 120, 120, 1.0),
-                  /*   image: DecorationImage(
-                    image: AssetImage('Image location here'),
+                    image: DecorationImage(
+                    image: AssetImage(widget._back),
                     fit: BoxFit.fill,
-                  ), */
+                  ),
                   shape: BoxShape.rectangle,
                 ),
               ),
@@ -104,6 +104,7 @@ class _MyHomePageState extends State<_MyHomePage> {
                     ElevatedButton(
                       onPressed: ()
                       {
+                        widget._back = '../pictures/door_open.png';
                         _open();
                         print('OPEN');
                       },
@@ -112,6 +113,7 @@ class _MyHomePageState extends State<_MyHomePage> {
                     ElevatedButton(
                       onPressed: ()
                       {
+                        widget._back = '../pictures/half_open.png';
                         _halfOpen();
                         print('HALF OPEN');
                       },
@@ -120,6 +122,7 @@ class _MyHomePageState extends State<_MyHomePage> {
                     ElevatedButton(
                       onPressed: ()
                       {
+                        widget._back = '../pictures/door_closed.png';
                         _close();
                         print('CLOSED');
                       },
@@ -127,12 +130,12 @@ class _MyHomePageState extends State<_MyHomePage> {
                     ),
                   ]
               ),
-            ]), */
+            ]),
       ),
     );
   }
 }
-class ControllerApp extends StatelessWidget {
+/*class ControllerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context)
   {
@@ -245,7 +248,7 @@ class Network extends StatelessWidget {
       ),
     );
   }
-}
+}*/
 
 
 
