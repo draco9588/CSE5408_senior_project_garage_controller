@@ -77,13 +77,13 @@ do
 
   Serial.println("This is direction: ");
   Serial.println(incoming);
-  compare = temp[0];
+  compare = temp[11];
   Serial.println(compare);
   door_operation(compare);
-//  delay(1500);
+  //delay(1500);
  // incoming.remove(0,length_incoming);
   //compare='/0';
-  temp[0] = '/0';
+  temp[11] = '/0';
 }while( val_x == LOW || val_y == LOW);
 Serial.println("broke loop");
 power_garage();

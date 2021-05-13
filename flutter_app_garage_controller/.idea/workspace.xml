@@ -27,17 +27,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="77919484-d818-41b4-bf56-6d695d3bdb4c" name="Default Changelist" comment="update flutter">
-      <change beforePath="$PROJECT_DIR$/../controller_operation_main/controller_operation_main/controller_operation_main/controller_operation_main.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../controller_operation_main/controller_operation_main/controller_operation_main/controller_operation_main.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../flutter_app_iptest/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/../flutter_app_iptest/.dart_tool/package_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../flutter_app_iptest/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/../flutter_app_iptest/.dart_tool/package_config_subset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../flutter_app_iptest/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../flutter_app_iptest/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../flutter_app_iptest/.idea/markdown-navigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../flutter_app_iptest/.idea/markdown-navigator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../flutter_app_iptest/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../flutter_app_iptest/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../flutter_app_iptest/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/../flutter_app_iptest/.packages" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../flutter_app_iptest/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java" beforeDir="false" afterPath="$PROJECT_DIR$/../flutter_app_iptest/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../flutter_app_iptest/ios/Runner/GeneratedPluginRegistrant.h" beforeDir="false" afterPath="$PROJECT_DIR$/../flutter_app_iptest/ios/Runner/GeneratedPluginRegistrant.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../flutter_app_iptest/ios/Runner/GeneratedPluginRegistrant.m" beforeDir="false" afterPath="$PROJECT_DIR$/../flutter_app_iptest/ios/Runner/GeneratedPluginRegistrant.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../flutter_app_iptest/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../flutter_app_iptest/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +37,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GithubPullRequestsUISettings">
     <option name="hiddenUrls">
@@ -159,9 +151,14 @@
     </state>
     <state width="1877" height="278" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1619117734898" />
     <state width="916" height="281" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1619046592058" />
-    <state x="1249" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1619039610007">
+    <state x="1249" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1620595822107">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1249" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1619039610007" />
+    <state x="1249" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1620595822107" />
+    <state x="542" y="203" key="new project wizard" timestamp="1620597469753">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="542" y="203" key="new project wizard/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1620597469753" />
   </component>
 </project>
